@@ -72,6 +72,7 @@ I trained a linear SVM using both HOG and color features (histogram and binned c
 
 To come up with the best data to use for the classifier I used a smaller data set and tried different color spaces with different parameters. I changed one parameter at a time and checked if it increased or decreased the accuracy. I saw that using HOG for all 3 channels on a YCrCb image with color features as mentioned above gave a good result. My final parameter choice were (can be seen in code cell 7):
 
+```python
 color_space = 'YCrCb' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb
 orient = 11  # HOG orientations
 pix_per_cell = 8 # HOG pixels per cell
@@ -82,6 +83,7 @@ hist_bins = 32    # Number of histogram bins
 spatial_feat = True # Spatial features on or off
 hist_feat = True # Histogram features on or off
 hog_feat = True # HOG features on or off
+```
 
 I was training my classifier on the GTI and KITTI data sets. I chose to only use every 5th image of the GTI-data since some of the images were very similar, and thereafter chose 6000 images from the vehicle and 6000 images from non-vehicle data. This can be seen in the 6th and 7th code cell. My final SVM got an accuracy of 0.9942.
 
